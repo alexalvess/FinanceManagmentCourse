@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Contracts\" />
+    <Folder Include="Modules\BankAccounts\CommandHandles\" />
+    <Folder Include="Modules\BankAccounts\QueryHandles\" />
+    <Folder Include="Modules\Budgtes\CommandHandles\" />
+    <Folder Include="Modules\Budgtes\QueryHandles\" />
+  </ItemGroup>
+
+</Project>
