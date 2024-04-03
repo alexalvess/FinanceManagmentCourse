@@ -2,6 +2,7 @@
 using Domain.Modules.Budgets.ValueObjects.Categories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Transactions;
 
 namespace Infrastructure.SqlServer.Databases.Configurations.Budgets;
 
@@ -22,6 +23,18 @@ public class BudgetConfiguration : IEntityTypeConfiguration<Budget>
 
                     categoryNavigationBuilder.Property<int>("Id").IsRequired();
                     categoryNavigationBuilder.HasKey("Id");
+
+                    categoryNavigationBuilder
+                        .OwnsMany(
+                            account => account.Transactions,
+                            transactionNavigationBuilder =>
+                            {
+                                transactionNavigationBuilder.ToTable(nameof(Transaction));
+
+                                transactionNavigationBuilder.Property<int>("Id").IsRequired();
+                                transactionNavigationBuilder.HasKey("Id");
+                            }
+                        );
                 }
             );
     }

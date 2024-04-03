@@ -2,9 +2,9 @@
 using Domain.Modules.Accounts.Aggregates;
 using Domain.Modules.Accounts.Entities.Profile;
 using Domain.Modules.Accounts.ValueObjects.Address;
-using Domain.Modules.Accounts.ValueObjects.Transactions;
 using Domain.Modules.Budgets.Aggreagates;
 using Domain.Modules.Budgets.ValueObjects.Categories;
+using Domain.Modules.Budgets.ValueObjects.Transactions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.SqlServer.Databases.Contexts;
