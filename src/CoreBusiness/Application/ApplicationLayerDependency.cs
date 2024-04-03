@@ -1,10 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Abstractions.Ports.Handlers;
+using Application.Contracts;
+using Application.Modules.Accounts.CommandHandles;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Application;
-internal class ApplicationLayerDependency
+
+public static class ApplicationLayerDependency
 {
+    public static void AddApplicationLayer(this IServiceCollection services)
+    {
+        services.AddTransient<ICommandHandler<Command.CreateAccountCommand>, CreateAccountHandler>();
+    }
 }

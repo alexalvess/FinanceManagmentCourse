@@ -1,4 +1,4 @@
-﻿using Application.Contracts.ViewModels;
+﻿using Application.Contracts;
 using Domain.Modules.Accounts.Aggregates;
 using Domain.Modules.Accounts.Entities.Profile;
 using Domain.Modules.Accounts.ValueObjects.Address;
@@ -28,11 +28,11 @@ public class FinanceManagmentContext : DbContext
 	#endregion
 
 	#region Views
-	public DbSet<BalanceViewModel> BalanceView { get; set; }
+	public DbSet<ViewModel.BalanceViewModel> BalanceView { get; set; }
 
-	public DbSet<CategoryViewModel> CategoryView { get; set; }
+	public DbSet<ViewModel.CategoryViewModel> CategoryView { get; set; }
 
-	public DbSet<TransactionViewModel> TransactionView { get; set; }
+	public DbSet<ViewModel.TransactionViewModel> TransactionView { get; set; }
 	#endregion
 
 	public FinanceManagmentContext(DbContextOptions options) 
@@ -42,9 +42,9 @@ public class FinanceManagmentContext : DbContext
 	{
         modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
 
-		modelBuilder.Entity<BalanceViewModel>().HasNoKey().ToView(nameof(BalanceViewModel));
-		modelBuilder.Entity<CategoryViewModel>().HasNoKey().ToView(nameof(CategoryViewModel));
-		modelBuilder.Entity<TransactionViewModel>().HasNoKey().ToView(nameof(TransactionViewModel));
+		modelBuilder.Entity<ViewModel.BalanceViewModel>().HasNoKey().ToView(nameof(ViewModel.BalanceViewModel));
+		modelBuilder.Entity<ViewModel.CategoryViewModel>().HasNoKey().ToView(nameof(ViewModel.CategoryViewModel));
+		modelBuilder.Entity<ViewModel.TransactionViewModel>().HasNoKey().ToView(nameof(ViewModel.TransactionViewModel));
     }
 
 	protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
