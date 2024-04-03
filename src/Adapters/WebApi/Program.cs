@@ -26,7 +26,7 @@ builder.Host
             options.Conventions.Add(new RouteTokenTransformerConvention(new SlugyParametersTransformer()));
             options.SuppressAsyncSuffixInActionNames = true;
         });
-
+        
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
