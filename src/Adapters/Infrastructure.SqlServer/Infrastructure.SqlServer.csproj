@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\CoreBusiness\Application\Application.csproj" />
     <ProjectReference Include="..\..\CoreBusiness\Domain\Domain.csproj" />
   </ItemGroup>
 
