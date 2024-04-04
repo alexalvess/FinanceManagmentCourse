@@ -15,6 +15,12 @@ public class BudgetConfiguration : IEntityTypeConfiguration<Budget>
         builder.HasKey(budget => budget.Id);
 
         builder
+            .Property(prop => prop.ReferencePeriod)
+            .HasConversion(
+                dateOnly => dateOnly.ToDateTime(TimeOnly.MinValue),
+                dateTime => DateOnly.FromDateTime(dateTime));
+
+        builder
             .OwnsMany(
                 account => account.Categories,
                 categoryNavigationBuilder =>
