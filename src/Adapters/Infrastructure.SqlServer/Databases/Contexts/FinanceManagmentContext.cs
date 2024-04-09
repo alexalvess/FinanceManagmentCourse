@@ -28,11 +28,11 @@ public class FinanceManagmentContext : DbContext
 	#endregion
 
 	#region Views
-	public DbSet<ViewModel.BalanceViewModel> BalanceView { get; set; }
+	public DbSet<ViewModel.BalanceViewModel> BalanceViewModel { get; set; }
 
-	public DbSet<ViewModel.CategoryViewModel> CategoryView { get; set; }
+	public DbSet<ViewModel.CategoryViewModel> CategoryViewModel { get; set; }
 
-	public DbSet<ViewModel.TransactionViewModel> TransactionView { get; set; }
+	public DbSet<ViewModel.TransactionViewModel> TransactionViewModel { get; set; }
 	#endregion
 
 	public FinanceManagmentContext(DbContextOptions options) 

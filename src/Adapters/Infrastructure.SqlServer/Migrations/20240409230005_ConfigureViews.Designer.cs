@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.SqlServer.Migrations
 {
     [DbContext(typeof(FinanceManagmentContext))]
-    [Migration("20240404174436_ConfigureViews")]
+    [Migration("20240409230005_ConfigureViews")]
     partial class ConfigureViews
     {
         /// <inheritdoc />
