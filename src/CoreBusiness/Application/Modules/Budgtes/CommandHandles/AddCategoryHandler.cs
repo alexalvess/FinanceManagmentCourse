@@ -15,7 +15,13 @@ public class AddCategoryHandler : CommandHandler<Command.AddCategoryCommand>
 
     public override async Task Handle(Command.AddCategoryCommand command, CancellationToken cancellationToken)
     {
-        Category category = new(command.Name, command.Limit);
-        await _repository.InsertAsync(category, cancellationToken);
+        Budget? budget = await _repository.GetAsync<Budget>(prop => prop.Id == command.BudgetId, cancellationToken);
+
+        if (budget is null)
+            throw new Exception("Budget not found");
+
+        budget.AddCategory(command.Name, command.Limit);
+
+        await _repository.UpdateAsync(budget, cancellationToken);
     }
 }
