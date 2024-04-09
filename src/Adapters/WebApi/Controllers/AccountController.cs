@@ -1,9 +1,9 @@
 ﻿using Application.Abstractions.Ports.Handlers;
 using Application.Contracts;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers;
+
 [Route("api/[controller]")]
 [ApiController]
 public class AccountController : ControllerBase
