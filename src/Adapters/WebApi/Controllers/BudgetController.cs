@@ -44,4 +44,21 @@ public class BudgetController : ControllerBase
             return BadRequest(ex);
         }
     }
+
+    [HttpGet("category/{accountId}")]
+    public async Task<IActionResult> ListCategoryAsync(
+        [FromServices] IQueryHandler<Query.ListCategoryQuery, List<ViewModel.CategoryViewModel>> handler,
+        [FromRoute] Guid accountId,
+        CancellationToken cancellationToken)
+    {
+        try
+        {
+            var result = await handler.Handle(new Query.ListCategoryQuery(accountId), cancellationToken);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex);
+        }
+    }
 }
